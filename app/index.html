@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app="prodApp">
+<head>
+  <meta charset="utf-8">
+  <title>Product Management Tool</title>
+  <link rel="stylesheet" href="css/main.css">
+<!--   <link rel="stylesheet"href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet"href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+ -->
+  <script src="bower_components/jquery/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/services.js"></script>
+</head>
+<body>
+
+  <div class="container" id="app">
+     <div class="navbar navbar-inverse">
+     <div class="navbar-inner">
+           <ul class="nav nav-tab">
+            <li  class="active">
+              <a href="#">Home</a>
+            </li>
+             <li>
+              <a href="#/history">Products</a>
+            </li>
+             <li>
+              <a href="#/prodcuctDetail">Products History</a>
+            </li>
+         </ul> 
+     </div>
+        
+     </div>
+     <div class="subContainer">
+          <div ng-view class="view-frame"></div>
+     </div>
+ 
+  </div>
+
+</body>
+</html>
