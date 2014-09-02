@@ -2,44 +2,44 @@
 
 /* Controllers */
 
-var productsControllers = angular.module('productsControllers', []);
+var productsControllers = angular.module('productsControllers', ['ngGrid']);
 
 productsControllers.controller('ProductsListCtrl', ['$scope', '$http', function($scope, $http){
+
+   $scope.products =[];
    $http.get('phones/products.json').success(function(data){
 
         $scope.products = data;
+
     });
+   $scope.gridOptions = {
+    data: 'products',
+    columnDefs: [
+    { field: 'imageUrl', width: 80, displayName: 'Image', cellTemplate: '<img ng-src="{{ row.getProperty(col.field) }}">'},
+    { field: 'id', width: 40, displayName: 'Id'},
+    { field: 'name', width: 260, displayName: 'Name'},
+    { field: 'snippet', width: 420, displayName: 'Snippet'},
+    { field: 'price', width: 60, displayName: 'Price'},
+    { field: 'qty', width: 60, displayName: 'Qty'}
+
+    ]
+  };
+
+
    }
-   /* function($scope, Phone) {
-      $scope.phones = Phone.query();
-      $scope.orderProp = 'age';
-    }*/
-   
 
   ]);
 
 productsControllers.controller('ProductsDetailCtrl', ['$scope', '$routeParams', '$c',
   function($scope, $routeParams, $http) {
-  /*  $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
-    });
-
-    $scope.setImage = function(imageUrl) {
-      $scope.mainImageUrl = imageUrl;
-    }*/
+  
   }
 
   ]);
 
 productsControllers.controller('ProductsHistoryCtrl', ['$scope', '$routeParams', '$c',
   function($scope, $routeParams, $http) {
-  /*  $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
-    });
-
-    $scope.setImage = function(imageUrl) {
-      $scope.mainImageUrl = imageUrl;
-    }*/
+ 
   }
 
   ]);
